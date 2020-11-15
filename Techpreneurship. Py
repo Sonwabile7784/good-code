@@ -1,0 +1,141 @@
+def Fibonacci(n):
+    
+   #0 and 1 to start the list 
+   
+    a = (0)
+    b = (1)
+    
+    print(a)
+    print(b)
+    
+    for f in range (2,n):
+        
+    #to get the next in the you need to switch the first chrs
+        c = a + b
+        
+        a = b
+        b = c
+        
+        print(c)
+
+Fibonacci(100)
+
+#//////////////////////////////////////////////////////////////////////////
+
+
+
+
+def Numbers(array):
+    
+    #dinition and initial
+   
+    even = 0
+    odd = 0
+    
+    for j in array:
+        if j%2 == 0:
+            
+            # increment according to even numbers
+            even += 1
+        else:
+            #increment to the odd numbers
+            odd += 0
+            
+    return even, odd
+    
+array = [555, 901, 482, 1771, 666, 1263, 400, 333, 286]
+
+even, odd = Numbers(array)
+    
+print(even)
+
+print(odd)
+
+#//////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+def mergeIntervals(arr):
+
+        arr.sort(key = lambda x: x[0])  
+
+          # array for the characters 
+
+        m = [] 
+
+        s = -10000
+
+        max = -100000
+
+        for i in range(len(arr)): 
+
+            a = arr[i] 
+
+            if a[0] > max: 
+
+                if i != 0: 
+
+                    m.append([s,max]) 
+
+                max = a[1] 
+
+                s = a[0] 
+
+            else: 
+
+                if a[1] >= max: 
+
+                    max = a[1] 
+
+        #'max' value gives the last point at s
+
+        # s gives the starting point of that interval  and m array contains the list of all merged intervals 
+
+  
+
+        if max != -100000 and [s, max] not in m: 
+
+            m.append([s, max]) 
+
+        print("Merged :", end = " ") 
+
+        for i in range(len(m)): 
+
+            print(m[i], end = " ") 
+
+# the list of array  
+
+arr = [[6, 8], [1, 9], [2, 4], [4, 7], [8,8]] 
+mergeIntervals(arr)
+
+#/////////////////////////////////////////////////////////////////////////////////////  
+  
+
+
+
+s = input()
+
+def romanToInteger(s):
+    
+    #definition of characters
+    
+    d = {'I':1,'V':5,'X':10,'L':50,'C':100,'D':500,'M':1000}
+    ans = 0
+    
+    for i in range(len(s)):
+        
+        # track if the current value is bigger than the previous 
+           
+        if i+1 != len(s) and d[s[i]]<d[s[i+1]]: 
+         
+       #take the previous value 2* from the current
+            ans = ans - d[s[i]] 
+                             
+        #place current to the previous   
+        else:
+            ans = ans + d[s[i]]
+            
+    return ans
+
+print(romanToInteger(s))
